@@ -24,7 +24,8 @@
                 android:launchMode="singleTask"/>
         <activity
                 android:name="com.germanofilho.app.feature.home.presentation.view.HomeActivity"
-                android:windowSoftInputMode="adjustResize"/>
+                android:windowSoftInputMode="adjustResize"
+                android:launchMode="singleTask"/>
     </application>
 
 </manifest>
