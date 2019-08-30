@@ -1,0 +1,23 @@
+<resources>
+    <string name="app_name">TWC test</string>
+    <string name="hint_city">Your city name</string>
+    <string name="search">Search</string>
+    <string name="empty_field">Empty Field!</string>
+    <string name="data_weather">temperature from %d to %d°С, wind %d m/s.</string>
+    <string name="data_city">%s, %s %s\n%d°С, %s</string>
+    <string name="temperature_max">Temperature Max °С</string>
+    <string name="temperature_min">Temperature Min °С</string>
+    <string name="temperature">Temperature</string>
+    <string name="wind_speed_max">Wind Speed Max m/s</string>
+    <string name="rain">Rain</string>
+    <string name="save">Save Conditions</string>
+    <string name="settings">Settings</string>
+    <string name="settings_info">Current weather settings:\nTemp max: %s °С, Temp Min: %s °С\nWind Speed Max %s m/s,
+        Rain: %s
+    </string>
+    <string name="settings_text">Set your weather perfect conditions</string>
+    <string name="msg_day_status">It\'s a %s Day!</string>
+    <string name="msg_not_found">City not found!</string>
+    <string name="msg_saved_conditions">Conditions Saved!</string>
+    <string name="title_activity_splash">Splash</string>
+</resources>
