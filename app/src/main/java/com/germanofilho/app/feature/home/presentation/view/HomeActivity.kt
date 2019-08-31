@@ -2,8 +2,6 @@ package com.germanofilho.app.feature.home.presentation.view
 
 import android.os.Bundle
 import android.view.View
-import android.widget.Toast
-import androidx.core.content.ContextCompat
 import com.germanofilho.app.core.helper.observeResource
 import com.germanofilho.app.core.view.BaseActivity
 import com.germanofilho.app.data.model.entity.WeatherResponse
@@ -39,7 +37,6 @@ class HomeActivity : BaseActivity() {
 
         btn_settings.setOnClickListener {
             startActivity(SettingsActivity.newInstance(this))
-            //overridePendingTransition(R.anim.slide_right, R.anim.zoom_in)
         }
     }
 
@@ -73,9 +70,9 @@ class HomeActivity : BaseActivity() {
         fadeIn(txt_day_status)
         txt_day_status.text = getString(R.string.msg_not_found)
         txt_day_status.setCompoundDrawablesWithIntrinsicBounds(R.drawable.ic_neutral_day, 0, 0, 0)
-        txt_result.visibility = View.GONE
-        txt_average.visibility = View.GONE
-        img_weather.visibility = View.GONE
+        txt_result.visibility = View.INVISIBLE
+        txt_average.visibility = View.INVISIBLE
+        img_weather.visibility = View.INVISIBLE
     }
 
     private fun loadData(data : WeatherResponse){
@@ -84,8 +81,6 @@ class HomeActivity : BaseActivity() {
             .into(img_weather)
         txt_result.text = getString(R.string.data_weather, data.main.temp_min.toInt(), data.main.temp_max.toInt(), data.wind.speed.toInt())
         txt_average.text = getString(R.string.data_city, data.name, data.sys.country, getFlagEmoji(data.sys.country), data.main.temp.toInt(), data.weather.first().description)
-
-
 
         if(isGoodDay(data)){
             txt_day_status.text = getString(R.string.msg_day_status, "Good")
@@ -111,9 +106,8 @@ class HomeActivity : BaseActivity() {
         if(data.wind.speed > settings?.wind?.toFloat() ?: 5f) return false
         if(data.main.temp_max > settings?.maxTemp?.toFloat() ?: 25f) return false
         if(data.main.temp_min < settings?.minTemp?.toFloat() ?: 5f) return false
-        if(data.weather.first().description.contains("rain")){
-            return settings?.rain ?: false
-        }
+        if(data.weather.first().description.contains("rain") && settings?.rain == false) return false
+        if(!data.weather.first().description.contains("rain") && settings?.rain == true) return false
 
         return true
     }

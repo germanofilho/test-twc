@@ -2,7 +2,6 @@ package com.germanofilho.app.feature.settings.presentation.view
 
 import android.content.Context
 import android.content.Intent
-import android.content.SharedPreferences
 import android.os.Bundle
 import android.widget.Toast
 import androidx.appcompat.app.AppCompatActivity
@@ -16,7 +15,6 @@ import com.warkiz.widget.SeekParams
 import kotlinx.android.synthetic.main.activity_settings.*
 import kotlinx.android.synthetic.main.content_settings.*
 
-
 class SettingsActivity : AppCompatActivity() {
 
     companion object {
@@ -28,7 +26,6 @@ class SettingsActivity : AppCompatActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_settings)
-
         toolbar_settings.setTitle(R.string.settings)
         setSupportActionBar(toolbar_settings)
         supportActionBar?.setDisplayHomeAsUpEnabled(true)
